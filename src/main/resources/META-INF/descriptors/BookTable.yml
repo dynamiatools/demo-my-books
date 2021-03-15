@@ -1,0 +1,25 @@
+view: table
+beanClass: mybookstore.domain.Book
+autofields: false
+
+fields:
+  title:
+  category:
+
+  sinopsys:
+    params:
+      header:
+        width: 500px
+  isbn:
+  year:
+  publishDate:
+    params:
+      converter: converters.Date
+  buyDate:
+    params:
+      converter: converters.Date
+  price:
+    params:
+      converter: converters.Currency
+      header:
+        align: right

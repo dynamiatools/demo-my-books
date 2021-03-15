@@ -1,0 +1,8 @@
+view: config
+id: discountsCfg
+
+fields:
+  winter:
+  summer:
+  spring:
+  autumm:

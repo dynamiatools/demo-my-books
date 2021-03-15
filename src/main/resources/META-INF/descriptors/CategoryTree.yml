@@ -1,0 +1,7 @@
+view: tree
+beanClass: mybookstore.domain.Category
+autofields: false
+
+fields:
+  name:
+  description:

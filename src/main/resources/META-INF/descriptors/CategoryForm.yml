@@ -1,0 +1,13 @@
+view: form
+beanClass: mybookstore.domain.Category
+autofields: false
+
+fields:
+  name:
+  description:
+  parent:
+    params:
+      placeholder: (optional)
+
+layout:
+  columns: 1

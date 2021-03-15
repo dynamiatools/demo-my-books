@@ -1,0 +1,23 @@
+view: form
+beanClass: mybookstore.domain.Book
+autofields: false
+
+fields:
+  title:
+    params:
+      span: 2
+  category:
+  isbn:
+  year:
+  publishDate:
+    component: dateselector
+  buyDate:
+  price:
+  sinopsys:
+    params:
+      span: 4
+      multiline: true
+      height: 80px
+
+layout:
+  columns: 4
