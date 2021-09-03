@@ -45,7 +45,7 @@
         <source.encoding>UTF-8</source.encoding>
         <timestamp>${maven.build.timestamp}</timestamp>
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
-        <tools.version>4.0.1</tools.version>
+        <tools.version>4.0.3</tools.version>
     </properties>
 
     <dependencies>
