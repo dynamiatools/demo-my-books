@@ -18,6 +18,9 @@ fields:
   buyDate:
     params:
       converter: converters.Date
+      header:
+        width: 100px
+        align: center
   price:
     params:
       converter: converters.Currency
