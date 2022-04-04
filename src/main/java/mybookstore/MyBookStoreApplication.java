@@ -20,6 +20,8 @@ package mybookstore;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import tools.dynamia.domain.jpa.EnableDynamiaToolsJPA;
 import tools.dynamia.zk.app.EnableDynamiaTools;
 
