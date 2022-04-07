@@ -46,6 +46,7 @@
         <source.encoding>UTF-8</source.encoding>
         <timestamp>${maven.build.timestamp}</timestamp>
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
+
         <tools.version>4.0.7</tools.version>
     </properties>
 
@@ -74,7 +75,7 @@
             <version>${tools.version}</version>
         </dependency>
 
-        <!-- -->
+        <!-- Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
