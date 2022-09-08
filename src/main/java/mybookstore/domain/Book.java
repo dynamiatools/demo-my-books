@@ -17,6 +17,8 @@
 
 package mybookstore.domain;
 
+import mybookstore.domain.enums.StockStatus;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -44,6 +46,9 @@ public class Book implements Serializable {
     private Date buyDate;
 
     private BigDecimal price;
+
+    @Enumerated
+    private StockStatus stockStatus = StockStatus.IN_STOCK;
 
 
     public Long getId() {
@@ -116,6 +121,14 @@ public class Book implements Serializable {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public StockStatus getStockStatus() {
+        return stockStatus;
+    }
+
+    public void setStockStatus(StockStatus stockStatus) {
+        this.stockStatus = stockStatus;
     }
 
     @Override

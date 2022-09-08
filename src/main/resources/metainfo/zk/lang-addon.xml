@@ -1,0 +1,7 @@
+<language-addon>
+    <addon-name>mybooks</addon-name>
+    <language-name>xul/html</language-name>
+
+    <stylesheet href="/static/css/books.css" type="text/css"/>
+
+</language-addon>

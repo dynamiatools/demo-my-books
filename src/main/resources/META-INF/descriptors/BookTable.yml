@@ -5,6 +5,14 @@ autofields: false
 fields:
   title:
   category:
+  stockStatus:
+    label: Stock
+    component: enumlabel
+    params:
+      defaultSclass: stockStatus
+      sclassPrefix: status
+      header:
+        width: 80px
 
   sinopsys:
     params:
@@ -26,3 +34,9 @@ fields:
       converter: converters.Currency
       header:
         align: right
+
+params:
+  enumColors:
+    name: stockStatus
+    colors:
+      OUT_STOCK: "#FFD9D1FF"
