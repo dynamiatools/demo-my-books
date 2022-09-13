@@ -1,0 +1,10 @@
+view: form
+beanClass: mybookstore.domain.Invoice
+autofields: false
+
+fields:
+  number:
+  customer:
+  email:
+  details:
+    component: crudview

@@ -1,0 +1,16 @@
+view: table
+beanClass: mybookstore.domain.Invoice
+autofields: false
+
+fields:
+  number:
+  customer:
+  email:
+
+  total:
+    params:
+      converter: converters.Currency
+      header:
+        align: right
+      footer:
+        function: sum

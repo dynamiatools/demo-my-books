@@ -1,0 +1,21 @@
+view: table
+beanClass: mybookstore.domain.InvoiceDetail
+autofields: false
+
+fields:
+  book:
+  book.price:
+    label: Price
+    params:
+      converter: converters.Currency
+      header:
+        align: right
+  quantity:
+
+  subtotal:
+    params:
+      converter: converters.Currency
+      header:
+        align: right
+      footer:
+        function: sum
