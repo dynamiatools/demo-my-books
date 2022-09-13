@@ -22,14 +22,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
-import tools.dynamia.domain.DefaultEntityReferenceRepository;
-import tools.dynamia.domain.EntityReference;
-import tools.dynamia.domain.EntityReferenceRepository;
+import org.springframework.context.annotation.Primary;
+import tools.dynamia.domain.*;
 import tools.dynamia.zk.app.EnableDynamiaTools;
 
 @SpringBootApplication
 @EnableDynamiaTools
-@EntityScan("mybookstore")
+@EntityScan({"mybookstore", "tools.dynamia"})
 public class MyBookStoreApplication { //<1>
 
     public static void main(String[] args) {
@@ -39,6 +38,12 @@ public class MyBookStoreApplication { //<1>
     @Bean
     public EntityReferenceRepository<Long> categoryEntityReferenceRepository() {
         return new DefaultEntityReferenceRepository<>(Category.class);
+    }
+
+    @Bean
+    @Primary
+    public OpenPersistenceInViewProvider noOpenPersistenceInViewProvider() {
+        return new NoOpenPersistenceInViewProvider();
     }
 
 }

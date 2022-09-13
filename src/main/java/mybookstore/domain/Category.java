@@ -18,6 +18,7 @@
 package mybookstore.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.BatchSize;
 import tools.dynamia.domain.contraints.NotEmpty;
 import tools.dynamia.domain.jpa.SimpleEntity;
 
@@ -27,6 +28,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "categories")
+@BatchSize(size = 10)
 public class Category extends SimpleEntity {
 
     @NotEmpty
