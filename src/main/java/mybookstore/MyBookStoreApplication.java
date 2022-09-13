@@ -17,9 +17,14 @@
 
 package mybookstore;
 
+import mybookstore.domain.Category;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Bean;
+import tools.dynamia.domain.DefaultEntityReferenceRepository;
+import tools.dynamia.domain.EntityReference;
+import tools.dynamia.domain.EntityReferenceRepository;
 import tools.dynamia.zk.app.EnableDynamiaTools;
 
 @SpringBootApplication
@@ -29,6 +34,11 @@ public class MyBookStoreApplication { //<1>
 
     public static void main(String[] args) {
         SpringApplication.run(MyBookStoreApplication.class, args); //<2>
+    }
+
+    @Bean
+    public EntityReferenceRepository<Long> categoryEntityReferenceRepository() {
+        return new DefaultEntityReferenceRepository<>(Category.class);
     }
 
 }
