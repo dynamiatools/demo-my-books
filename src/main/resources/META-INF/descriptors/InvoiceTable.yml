@@ -5,6 +5,9 @@ autofields: false
 fields:
   number:
   customer:
+    params:
+      header:
+        width: 200px
   email:
 
   total:

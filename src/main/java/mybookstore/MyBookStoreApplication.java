@@ -40,10 +40,6 @@ public class MyBookStoreApplication { //<1>
         return new DefaultEntityReferenceRepository<>(Category.class);
     }
 
-    @Bean
-    @Primary
-    public OpenPersistenceInViewProvider noOpenPersistenceInViewProvider() {
-        return new NoOpenPersistenceInViewProvider();
-    }
+
 
 }

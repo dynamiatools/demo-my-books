@@ -4,6 +4,14 @@ autofields: false
 
 fields:
   book:
+    component: coollabel
+    params:
+      showImage: false
+      bindings:
+        title: book.title
+        subtitle: book.category
+
+
   book.price:
     label: Price
     params:

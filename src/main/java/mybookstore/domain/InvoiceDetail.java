@@ -39,7 +39,6 @@ public class InvoiceDetail extends SimpleEntity {
     }
 
 
-
     public Invoice getInvoice() {
         return invoice;
     }
