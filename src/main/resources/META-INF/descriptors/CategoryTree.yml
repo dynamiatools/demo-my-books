@@ -4,4 +4,7 @@ autofields: false
 
 fields:
   name:
+    params:
+      header:
+        width: 300px
   description:

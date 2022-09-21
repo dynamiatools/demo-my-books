@@ -19,6 +19,7 @@ package mybookstore.providers;
 
 import mybookstore.domain.Book;
 import mybookstore.domain.Category;
+import mybookstore.domain.Customer;
 import mybookstore.domain.Invoice;
 import tools.dynamia.crud.CrudPage;
 import tools.dynamia.integration.sterotypes.Provider;
@@ -36,7 +37,8 @@ public class MyBookStoreModuleProvider implements ModuleProvider { // <1>
                 .description("my books library")
                 .position(0)
                 .addPage(new CrudPage("books", "Books", Book.class))
-                .addPage(new CrudPage("categories", "Categories", Category.class))
+                .addPage(new CrudPage("categories", "Categories", Category.class).icon("tree"))
+                .addPage(new CrudPage("customers", "Customers", Customer.class).icon("people"))
                 .addPage(new CrudPage("invoices", "Invoices", Invoice.class));
 
     }
