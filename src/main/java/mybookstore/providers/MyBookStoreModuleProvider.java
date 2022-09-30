@@ -25,6 +25,8 @@ import tools.dynamia.crud.CrudPage;
 import tools.dynamia.integration.sterotypes.Provider;
 import tools.dynamia.navigation.Module;
 import tools.dynamia.navigation.ModuleProvider;
+import tools.dynamia.navigation.Page;
+import tools.dynamia.navigation.PageGroup;
 
 @Provider
 public class MyBookStoreModuleProvider implements ModuleProvider { // <1>
@@ -32,7 +34,7 @@ public class MyBookStoreModuleProvider implements ModuleProvider { // <1>
     @Override
     public Module getModule() { //<2>
 
-        return new Module("library", "Library") //<3>
+        var mod = new Module("library", "Library") //<3>
                 .icon("book")
                 .description("my books library")
                 .position(0)
@@ -40,6 +42,9 @@ public class MyBookStoreModuleProvider implements ModuleProvider { // <1>
                 .addPage(new CrudPage("categories", "Categories", Category.class).icon("tree"))
                 .addPage(new CrudPage("customers", "Customers", Customer.class).icon("people"))
                 .addPage(new CrudPage("invoices", "Invoices", Invoice.class));
+
+
+        return mod;
 
     }
 }
