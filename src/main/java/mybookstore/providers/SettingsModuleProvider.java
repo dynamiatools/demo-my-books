@@ -20,6 +20,7 @@ package mybookstore.providers;
 import tools.dynamia.integration.sterotypes.Provider;
 import tools.dynamia.navigation.Module;
 import tools.dynamia.navigation.ModuleProvider;
+import tools.dynamia.navigation.Page;
 import tools.dynamia.zk.crud.cfg.ConfigPage;
 
 @Provider
@@ -32,7 +33,8 @@ public class SettingsModuleProvider implements ModuleProvider { // <1>
         return new Module("setup", "Settings")
                 .icon("settings")
                 .position(1)
-                .addPage(new ConfigPage("discounts", "Global Discounts", "discountsCfg"));
+                .addPage(new ConfigPage("discounts", "Global Discounts", "discountsCfg"))
+                .addPage(new Page("skin", "Skins", "classpath:/pages/changeSkin.zul"));
 
     }
 }

@@ -1,0 +1,13 @@
+<zk>
+
+    <div sclass="container-fluid"  viewModel="@id('vm') @init('mybookstore.viewmodel.ChangeSkinViewModel')">
+
+        <hlayout>
+            <label value="Select new Skin"/>
+            <skincombobox selected="@bind(vm.skin)"/>
+            <button label="Apply" onClick="@command('apply')"/>
+        </hlayout>
+
+    </div>
+
+</zk>
