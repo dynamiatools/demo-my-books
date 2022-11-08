@@ -41,7 +41,8 @@ public class MyBookStoreModuleProvider implements ModuleProvider { // <1>
                 .addPage(new CrudPage("books", "Books", Book.class))
                 .addPage(new CrudPage("categories", "Categories", Category.class).icon("tree"))
                 .addPage(new CrudPage("customers", "Customers", Customer.class).icon("people"))
-                .addPage(new CrudPage("invoices", "Invoices", Invoice.class));
+                .addPage(new CrudPage("invoices", "Invoices", Invoice.class))
+                .addPage(new Page("vue", "Vue Example", "classpath:/pages/vue-integration.zul"));
 
 
         return mod;
