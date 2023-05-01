@@ -2,8 +2,8 @@ package mybookstore.domain;
 
 import tools.dynamia.domain.jpa.BaseEntity;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;

@@ -8,3 +8,10 @@ fields:
   email:
   details:
     component: crudview
+    params:
+      inplace: true
+      height: 400px
+      span: 3
+
+layout:
+  columns: 3

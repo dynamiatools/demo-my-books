@@ -3,8 +3,8 @@ package mybookstore.domain;
 import org.zkoss.zhtml.Big;
 import tools.dynamia.domain.jpa.SimpleEntity;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity

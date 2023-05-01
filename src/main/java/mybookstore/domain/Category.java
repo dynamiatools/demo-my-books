@@ -22,7 +22,7 @@ import org.hibernate.annotations.BatchSize;
 import tools.dynamia.domain.contraints.NotEmpty;
 import tools.dynamia.domain.jpa.SimpleEntity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

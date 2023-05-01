@@ -5,8 +5,8 @@ import tools.dynamia.domain.contraints.Email;
 import tools.dynamia.domain.contraints.NotEmpty;
 import tools.dynamia.domain.jpa.SimpleEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "customers")

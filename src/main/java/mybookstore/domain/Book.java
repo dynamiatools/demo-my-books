@@ -19,7 +19,7 @@ package mybookstore.domain;
 
 import mybookstore.domain.enums.StockStatus;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
