@@ -65,7 +65,7 @@
 
         <dependency>
             <groupId>tools.dynamia</groupId>
-            <artifactId>tools.dynamia.zk.app</artifactId>
+            <artifactId>tools.dynamia.zk</artifactId>
             <version>${tools.version}</version>
         </dependency>
 
