@@ -20,12 +20,15 @@ package mybookstore.domain;
 import mybookstore.domain.enums.StockStatus;
 
 import jakarta.persistence.*;
+import tools.dynamia.domain.OrderBy;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
 @Table(name = "books")
+@OrderBy("title")
 public class Book implements Serializable {
 
     @Id

@@ -40,3 +40,5 @@ params:
     name: stockStatus
     colors:
       OUT_STOCK: "#FFD9D1FF"
+
+  orderBy: title
