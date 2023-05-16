@@ -23,6 +23,7 @@ import mybookstore.domain.enums.StockStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import tools.dynamia.commons.DateTimeUtils;
 import tools.dynamia.commons.StringUtils;
 import tools.dynamia.domain.services.CrudService;
 
@@ -53,18 +54,20 @@ public class InitSampleDataCommandLinerRunner implements CommandLineRunner {
                 .add(new Category("Groovy"))
                 .add(new Category("Kotlin"))
                 .add(new Category("Cloud"))
+                .add(new Category("Frontend"))
                 .add(new Category("Architecture"));
 
         programming.save();
 
-        List.of("My First Pony", "100 years of drama", "My Best Friend", "The Little Prince", "Lord of the Rings", "Game of Thrones")
+        List.of("My First Pony", "100 years of drama", "My Best Friend", "The Little Prince", "Lord of the Rings", "Game of Thrones",
+                        "Skyward", "Son of Mist", "Dune", "Divergent", "Henry Pota")
                 .forEach(title -> {
 
                     int random = new Random().nextInt(novels.getSubcategories().size());
                     var book = new Book();
                     book.setTitle(title);
                     book.setCategory(novels.getSubcategories().get(random));
-                    book.setYear(1940);
+                    book.setYear(new Random().nextInt(2000, DateTimeUtils.getCurrentYear()));
                     book.setBuyDate(new Date());
                     book.setIsbn(StringUtils.randomString().toUpperCase());
                     book.setSinopsys("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
@@ -73,13 +76,14 @@ public class InitSampleDataCommandLinerRunner implements CommandLineRunner {
                     crudService.save(book);
                 });
 
-        List.of("My First Programming", "Clean Code", "Design Patterns", "Scale to the cloud", "Spring Boot", "Dynamia in Action")
+        List.of("My First Programming", "Clean Code", "Design Patterns", "Scale to the cloud", "Spring Boot", "Dynamia in Action", "Flutter", "Dart",
+                        "Javascript Maxx")
                 .forEach(title -> {
                     int random = new Random().nextInt(programming.getSubcategories().size());
                     var book = new Book();
                     book.setTitle(title);
                     book.setCategory(programming.getSubcategories().get(random));
-                    book.setYear(2020);
+                    book.setYear(new Random().nextInt(2010, DateTimeUtils.getCurrentYear()));
                     book.setBuyDate(new Date());
                     book.setIsbn(StringUtils.randomString().toUpperCase());
                     book.setSinopsys("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");

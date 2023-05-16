@@ -22,17 +22,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import tools.dynamia.domain.*;
+import tools.dynamia.integration.Ehcache3CacheManager;
 import tools.dynamia.themes.dynamical.DynamicalTemplate;
 import tools.dynamia.zk.app.EnableDynamiaTools;
 
 @SpringBootApplication
 @EnableDynamiaTools
 @EntityScan({"mybookstore", "tools.dynamia"})
+@EnableCaching
 public class MyBookStoreApplication { //<1>
-
 
 
     public static void main(String[] args) {
@@ -45,6 +48,10 @@ public class MyBookStoreApplication { //<1>
     }
 
 
+    @Bean
+    public CacheManager cacheManager() {
+        return new Ehcache3CacheManager();
+    }
 
 
 }
