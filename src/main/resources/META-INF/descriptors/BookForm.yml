@@ -19,5 +19,8 @@ fields:
       multiline: true
       height: 80px
 
+  reviews:
+    component: crudview
+
 layout:
   columns: 4

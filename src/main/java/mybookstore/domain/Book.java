@@ -24,7 +24,9 @@ import tools.dynamia.domain.OrderBy;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "books")
@@ -52,6 +54,9 @@ public class Book implements Serializable {
 
     @Enumerated
     private StockStatus stockStatus = StockStatus.IN_STOCK;
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<BookReview> reviews = new ArrayList<>();
 
 
     public Long getId() {
@@ -139,4 +144,11 @@ public class Book implements Serializable {
         return title;
     }
 
+    public List<BookReview> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<BookReview> reviews) {
+        this.reviews = reviews;
+    }
 }
