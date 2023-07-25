@@ -17,11 +17,12 @@
 
 package mybookstore.providers;
 
+import tools.dynamia.crud.cfg.ConfigPage;
 import tools.dynamia.integration.sterotypes.Provider;
 import tools.dynamia.navigation.Module;
 import tools.dynamia.navigation.ModuleProvider;
 import tools.dynamia.navigation.Page;
-import tools.dynamia.zk.crud.cfg.ConfigPage;
+
 
 @Provider
 public class SettingsModuleProvider implements ModuleProvider { // <1>
