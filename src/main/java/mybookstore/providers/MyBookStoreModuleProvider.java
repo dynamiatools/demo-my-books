@@ -48,6 +48,7 @@ public class MyBookStoreModuleProvider implements ModuleProvider { // <1>
         mod.addPageGroup(examples);
 
         examples.addPage(new Page("vue", "Vue Example", "classpath:/pages/vue-integration.zul"));
+        examples.addPage(new Page("html", "Simple Html File", "/file.html?v=1"));
 
 
         return mod;

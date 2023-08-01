@@ -41,3 +41,4 @@ dynamia:
     build: @timestamp@
     author: @author@
     url: @project.url@
+
