@@ -8,6 +8,13 @@ fields:
   parent:
     params:
       placeholder: (optional)
+  tags:
+    component: crudview
+    params:
+      height: 200px
+      inplace: true
+
+
 
 layout:
   columns: 1

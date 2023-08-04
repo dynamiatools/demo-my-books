@@ -22,5 +22,10 @@ fields:
   reviews:
     component: crudview
 
+groups:
+  details:
+    label: Book Details
+    fields: [ buyDate, price, reviews ]
+
 layout:
   columns: 4

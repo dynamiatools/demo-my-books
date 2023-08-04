@@ -23,6 +23,7 @@ import tools.dynamia.domain.contraints.NotEmpty;
 import tools.dynamia.domain.jpa.SimpleEntity;
 
 import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +35,8 @@ public class Category extends SimpleEntity {
     @NotEmpty
     private String name;
     private String description;
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CategoryTag> tags = new ArrayList<>();
 
     @ManyToOne
     @JsonIgnore
@@ -87,6 +90,14 @@ public class Category extends SimpleEntity {
 
     public void setSubcategories(List<Category> subcategories) {
         this.subcategories = subcategories;
+    }
+
+    public List<CategoryTag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<CategoryTag> tags) {
+        this.tags = tags;
     }
 
     @Override
