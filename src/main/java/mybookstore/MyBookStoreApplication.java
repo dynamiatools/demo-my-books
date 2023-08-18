@@ -47,11 +47,14 @@ public class MyBookStoreApplication { //<1>
         return new DefaultEntityReferenceRepository<>(Category.class);
     }
 
-
     @Bean
     public CacheManager cacheManager() {
         return new Ehcache3CacheManager();
     }
 
+    @Bean
+    public EntityReferenceRepository<Long> categoriesReferenceRepository() {
+        return new DefaultEntityReferenceRepository<>(Category.class, "name");
+    }
 
 }

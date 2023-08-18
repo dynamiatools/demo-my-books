@@ -3,7 +3,11 @@ id: discountsCfg
 
 fields:
   winter:
+    params:
+      defaultValue: 3
   summer:
+    params:
+      defaultValue: 10
   spring:
   autumm:
   defaultCategory:
