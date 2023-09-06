@@ -58,6 +58,9 @@ public class Book implements Serializable {
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BookReview> reviews = new ArrayList<>();
 
+    private boolean onSale;
+    private BigDecimal salePrice;
+
 
     public Long getId() {
         return id;
@@ -150,5 +153,21 @@ public class Book implements Serializable {
 
     public void setReviews(List<BookReview> reviews) {
         this.reviews = reviews;
+    }
+
+    public boolean isOnSale() {
+        return onSale;
+    }
+
+    public void setOnSale(boolean onSale) {
+        this.onSale = onSale;
+    }
+
+    public BigDecimal getSalePrice() {
+        return salePrice;
+    }
+
+    public void setSalePrice(BigDecimal salePrice) {
+        this.salePrice = salePrice;
     }
 }

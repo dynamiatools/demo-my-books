@@ -41,4 +41,5 @@ dynamia:
     build: @timestamp@
     author: @author@
     url: @project.url@
+    web-cache-enabled: true
 

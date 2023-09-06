@@ -1,6 +1,7 @@
 view: form
 beanClass: mybookstore.domain.Book
 autofields: false
+customizer: mybookstore.customizers.BookFormViewCustomizer
 
 fields:
   title:
@@ -11,8 +12,11 @@ fields:
   year:
   publishDate:
     component: dateselector
+  onSale:
   buyDate:
   price:
+    params:
+      format: $###,###
   sinopsys:
     params:
       span: 4
@@ -22,10 +26,15 @@ fields:
   reviews:
     component: crudview
 
+
+  salePrice:
+    params:
+      format: $###,###
+
 groups:
   details:
     label: Book Details
-    fields: [ buyDate, price, reviews ]
+    fields: [ buyDate, price, reviews, salePrice ]
 
 layout:
   columns: 4
