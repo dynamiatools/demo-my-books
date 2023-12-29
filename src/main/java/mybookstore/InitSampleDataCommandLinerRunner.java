@@ -20,12 +20,10 @@ package mybookstore;
 import mybookstore.domain.Book;
 import mybookstore.domain.Category;
 import mybookstore.domain.enums.StockStatus;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import tools.dynamia.commons.DateTimeUtils;
 import tools.dynamia.commons.StringUtils;
-import tools.dynamia.domain.services.CrudService;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -34,9 +32,6 @@ import java.util.Random;
 
 @Component
 public class InitSampleDataCommandLinerRunner implements CommandLineRunner {
-
-    @Autowired
-    private CrudService crudService;
 
 
     @Override
@@ -73,7 +68,7 @@ public class InitSampleDataCommandLinerRunner implements CommandLineRunner {
                     book.setSinopsys("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
                     book.setPrice(BigDecimal.valueOf(25L * random));
                     book.setStockStatus(StockStatus.random());
-                    crudService.save(book);
+                    book.save();
                 });
 
         List.of("My First Programming", "Clean Code", "Design Patterns", "Scale to the cloud", "Spring Boot", "Dynamia in Action", "Flutter", "Dart",
@@ -89,7 +84,7 @@ public class InitSampleDataCommandLinerRunner implements CommandLineRunner {
                     book.setSinopsys("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
                     book.setPrice(BigDecimal.valueOf(40L * random));
                     book.setStockStatus(StockStatus.random());
-                    crudService.save(book);
+                    book.save();
                 });
 
         System.out.println("Demo ready to run");

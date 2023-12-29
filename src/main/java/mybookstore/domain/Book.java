@@ -17,12 +17,19 @@
 
 package mybookstore.domain;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import mybookstore.domain.enums.StockStatus;
-
-import jakarta.persistence.*;
 import tools.dynamia.domain.OrderBy;
+import tools.dynamia.domain.jpa.SimpleEntity;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,11 +38,9 @@ import java.util.List;
 @Entity
 @Table(name = "books")
 @OrderBy("title")
-public class Book implements Serializable {
+public class Book extends SimpleEntity {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+
     private String title;
     @Column(length = 1000)
     private String sinopsys;
@@ -62,13 +67,6 @@ public class Book implements Serializable {
     private BigDecimal salePrice;
 
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
