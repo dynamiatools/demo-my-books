@@ -1,9 +1,9 @@
 package mybookstore.domain;
 
-import tools.dynamia.domain.jpa.BaseEntity;
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import tools.dynamia.domain.jpa.BaseEntity;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 public class Invoice extends BaseEntity {
 
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "customer_id")
     @NotNull
     private Customer customer;
