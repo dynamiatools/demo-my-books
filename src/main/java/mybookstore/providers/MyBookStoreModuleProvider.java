@@ -51,6 +51,7 @@ public class MyBookStoreModuleProvider implements ModuleProvider { // <1>
         examples.addPage(new Page("vue", "Vue Example", "classpath:/pages/vue-integration.zul"));
         examples.addPage(new Page("html", "Simple Html File", "/file.html?v=1"));
         examples.addPage(new Page("mvvm", "Standard ZK MVVM", "classpath:/pages/standard-mvvm.zul"));
+        examples.addPage(new Page("chartjs", "Charts for ZK", "classpath:/pages/chartjs.zul"));
 
 
         return mod;

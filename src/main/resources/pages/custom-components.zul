@@ -48,7 +48,9 @@
                             <card title="Sub card 2" expandable="true"/>
                         </div>
                         <div sclass="col-md-4">
-                            <card title="Sub card 3" collapsable="true"/>
+                            <card>
+                                <label value="Card without title"/>
+                            </card>
                         </div>
                     </div>
 
