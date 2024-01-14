@@ -27,7 +27,7 @@ import org.springframework.context.annotation.Bean;
 import tools.dynamia.app.Ehcache3CacheManager;
 import tools.dynamia.domain.DefaultEntityReferenceRepository;
 import tools.dynamia.domain.EntityReferenceRepository;
-import tools.dynamia.zk.app.EnableDynamiaTools;
+import tools.dynamia.app.EnableDynamiaTools;
 
 @SpringBootApplication
 @EnableDynamiaTools
