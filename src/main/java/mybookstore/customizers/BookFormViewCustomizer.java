@@ -20,9 +20,7 @@ public class BookFormViewCustomizer implements ViewCustomizer<FormView<Book>> {
 
 
         view.addEventListener(FormView.ON_VALUE_CHANGED, event -> {
-            System.out.println(view.getValue());
-
-            if (view.getValue().isOnSale()) {
+            if (view.getValue()!=null && view.getValue().isOnSale()) {
                 salePrice.show();
             }
         });
