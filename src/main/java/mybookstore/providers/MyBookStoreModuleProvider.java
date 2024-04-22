@@ -53,6 +53,7 @@ public class MyBookStoreModuleProvider implements ModuleProvider { // <1>
         examples.addPage(new Page("mvvm", "Standard ZK MVVM", "classpath:/pages/standard-mvvm.zul"));
         examples.addPage(new Page("chartjs", "Charts for ZK", "classpath:/pages/chartjs.zul"));
         examples.addPage(new Page("aceditor", "Ace Code Editor", "classpath:/pages/aceditor.zul"));
+        examples.addPage(new Page("signaturepad", "Signature Pad", "classpath:/pages/signaturepad.zul"));
 
 
         return mod;

@@ -1,0 +1,20 @@
+<zk xmlns:n="native">
+    <div viewModel="@id('vm') @init('mybookstore.viewmodel.SignaturePadDemoViewModel')">
+
+
+        <n:h4>Default</n:h4>
+
+        <signaturepad width="800" value="@bind(vm.signature)"/>
+        <button label="View" onClick="@command('view')"/>
+
+        <n:h4>Custom Pen Color</n:h4>
+
+        <signaturepad penColor="blue"/>
+
+
+        <n:h4>Custom Pen Color and Width</n:h4>
+
+        <signaturepad penColor="red" maxWidth="4" width="500px"/>
+
+    </div>
+</zk>
