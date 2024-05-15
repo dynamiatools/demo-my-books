@@ -8,12 +8,11 @@
 
         <west width="30%">
             <div>
-                <viewer viewType="form" beanClass="mybookstore.domain.Book" value="@load(vm.selected)" readonly="true"/>
 
                 <label value="Selected Books"/>
                 <div children="@load(vm.selectedBooks)">
                     <template name="children" var="b">
-                        <label value="@load(b.title)" sclass="badge badge-primary"/>
+                        <badge value="@load(b.title)" sclass="bg-blue"/>
                     </template>
                 </div>
             </div>

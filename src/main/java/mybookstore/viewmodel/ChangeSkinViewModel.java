@@ -2,10 +2,9 @@ package mybookstore.viewmodel;
 
 import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.Init;
-import org.zkoss.zk.ui.Executions;
-import tools.dynamia.app.CurrentTemplate;
+import tools.dynamia.app.SessionApplicationTemplate;
 import tools.dynamia.ui.UIMessages;
-import tools.dynamia.zk.app.ZKAppConfiguration;
+import tools.dynamia.zk.ZKAppConfiguration;
 
 public class ChangeSkinViewModel {
 
@@ -14,7 +13,7 @@ public class ChangeSkinViewModel {
 
     @Init
     public void init() {
-        skin = CurrentTemplate.get().getSkin().getId();
+        skin = SessionApplicationTemplate.get().getSkin().getId();
     }
 
 

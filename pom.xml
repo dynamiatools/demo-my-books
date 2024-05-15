@@ -32,7 +32,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.0</version>
+        <version>3.2.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -42,12 +42,12 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
         <target.version>17</target.version>
-        <maven.compiler>3.11.0</maven.compiler>
+        <maven.compiler>3.13.0</maven.compiler>
         <source.encoding>UTF-8</source.encoding>
         <timestamp>${maven.build.timestamp}</timestamp>
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
 
-        <tools.version>5.1.0</tools.version>
+        <tools.version>5.1.1</tools.version>
     </properties>
 
     <dependencies>
@@ -75,6 +75,11 @@
             <version>${tools.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>tools.dynamia.modules</groupId>
+            <artifactId>tools.dynamia.modules.security.ui</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <!-- Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -125,6 +130,7 @@
             <classifier>jakarta</classifier>
         </dependency>
 
+
     </dependencies>
 
     <build>
@@ -151,7 +157,8 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${target.version}</target>
-                    <encoding>${source.encoding}</encoding>
+                     <encoding>${source.encoding}</encoding>
+                    <parameters>true</parameters>
                 </configuration>
             </plugin>
         </plugins>

@@ -17,15 +17,7 @@
 
 package mybookstore.domain;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.*;
 import mybookstore.domain.enums.StockStatus;
 import tools.dynamia.domain.OrderBy;
 import tools.dynamia.domain.jpa.SimpleEntity;
@@ -46,7 +38,7 @@ public class Book extends SimpleEntity {
     private String sinopsys;
     private int year;
     private String isbn;
-    @OneToOne
+    @ManyToOne
     private Category category;
 
     @Temporal(TemporalType.DATE)
@@ -65,7 +57,6 @@ public class Book extends SimpleEntity {
 
     private boolean onSale;
     private BigDecimal salePrice;
-
 
 
     public String getTitle() {

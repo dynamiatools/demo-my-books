@@ -1,10 +1,12 @@
 package mybookstore.domain;
 
-import org.zkoss.zhtml.Big;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import tools.dynamia.domain.jpa.SimpleEntity;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
@@ -13,7 +15,7 @@ public class InvoiceDetail extends SimpleEntity {
     @ManyToOne
     @JoinColumn(name = "invoice_id")
     private Invoice invoice;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "book_id")
     @NotNull
     private Book book;

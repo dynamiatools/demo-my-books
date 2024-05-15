@@ -2,7 +2,7 @@ package mybookstore.actions;
 
 import tools.dynamia.actions.ActionEvent;
 import tools.dynamia.actions.InstallAction;
-import tools.dynamia.app.template.ApplicationGlobalAction;
+import tools.dynamia.actions.ApplicationGlobalAction;
 import tools.dynamia.ui.MessageType;
 import tools.dynamia.ui.UIMessages;
 
