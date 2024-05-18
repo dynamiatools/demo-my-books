@@ -47,7 +47,8 @@
         <timestamp>${maven.build.timestamp}</timestamp>
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
 
-        <tools.version>5.1.1</tools.version>
+        <tools.version>5.1.2</tools.version>
+        <security.version>1.0.1</security.version>
     </properties>
 
     <dependencies>
@@ -78,7 +79,7 @@
         <dependency>
             <groupId>tools.dynamia.modules</groupId>
             <artifactId>tools.dynamia.modules.security.ui</artifactId>
-            <version>1.0.0</version>
+            <version>${security.version}</version>
         </dependency>
         <!-- Spring Boot -->
         <dependency>
