@@ -1,16 +1,19 @@
 package mybookstore;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import tools.dynamia.templates.ApplicationTemplateSkin;
 import tools.dynamia.integration.sterotypes.Provider;
+import tools.dynamia.templates.ApplicationTemplateSkin;
 import tools.dynamia.themes.dynamical.DynamicalTemplate;
 
 @Provider
 public class InstallCustomSkinCLR implements CommandLineRunner {
 
-    @Autowired
-    private DynamicalTemplate template;
+
+    private final DynamicalTemplate template;
+
+    public InstallCustomSkinCLR(DynamicalTemplate template) {
+        this.template = template;
+    }
 
     @Override
     public void run(String... args) throws Exception {
