@@ -22,7 +22,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dynamia-tools-demos</groupId>
     <artifactId>my-book-store</artifactId>
-    <version>3.2.0-beta</version>
+    <version>3.2.0</version>
     <packaging>jar</packaging>
 
     <name>MyBookStore</name>
@@ -32,7 +32,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.2</version>
+        <version>3.3.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -47,7 +47,7 @@
         <timestamp>${maven.build.timestamp}</timestamp>
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
 
-        <tools.version>5.2.0-beta</tools.version>
+        <tools.version>5.2.0</tools.version>
         <security.version>1.0.1</security.version>
     </properties>
 
@@ -57,6 +57,11 @@
             <groupId>tools.dynamia</groupId>
             <artifactId>dynamia-tools-starter</artifactId>
             <version>${tools.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>tools.dynamia.themes</groupId>
+            <artifactId>tools.dynamia.themes.dynamical</artifactId>
+            <version>5.2.0</version>
         </dependency>
 
         <dependency>
@@ -68,19 +73,9 @@
         <!-- Spring Boot -->
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mariadb.jdbc</groupId>
-            <artifactId>mariadb-java-client</artifactId>
         </dependency>
 
         <dependency>
@@ -89,10 +84,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-xml</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.ehcache</groupId>
