@@ -3,11 +3,13 @@ package mybookstore.domain;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import tools.dynamia.domain.Descriptor;
 import tools.dynamia.domain.contraints.NotEmpty;
 import tools.dynamia.domain.jpa.SimpleEntity;
 
 @Entity
+@Table(name = "tags")
 @Descriptor(fields = "tag")
 public class CategoryTag extends SimpleEntity {
 

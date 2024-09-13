@@ -1,16 +1,16 @@
 package mybookstore.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import tools.dynamia.domain.jpa.BaseEntity;
 
 
 @Entity
+@Table(name = "reviews")
 public class BookReview extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Book book;
+    @Column(name = "user_name")
     private String user;
     private String comment;
     private int stars;

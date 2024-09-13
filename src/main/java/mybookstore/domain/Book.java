@@ -36,6 +36,7 @@ public class Book extends SimpleEntity {
     private String title;
     @Column(length = 1000)
     private String sinopsys;
+    @Column(name = "publication_year")
     private int year;
     private String isbn;
     @ManyToOne
