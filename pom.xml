@@ -22,7 +22,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dynamia-tools-demos</groupId>
     <artifactId>my-book-store</artifactId>
-    <version>3.2.0</version>
+    <version>3.3.0</version>
     <packaging>jar</packaging>
 
     <name>MyBookStore</name>
@@ -47,7 +47,8 @@
         <timestamp>${maven.build.timestamp}</timestamp>
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
 
-        <tools.version>5.2.0</tools.version>
+        <tools.version>5.3.0</tools.version>
+        <entityfiles.version>7.2.0</entityfiles.version>
         <security.version>1.0.1</security.version>
     </properties>
 
@@ -61,7 +62,7 @@
         <dependency>
             <groupId>tools.dynamia.themes</groupId>
             <artifactId>tools.dynamia.themes.dynamical</artifactId>
-            <version>5.2.0</version>
+            <version>5.3.0</version>
         </dependency>
 
 
@@ -86,7 +87,21 @@
             <classifier>jakarta</classifier>
         </dependency>
 
+        <!-- Dynamia Tools Optional Modules -->
 
+        <!-- Support to work with files attached to entities -->
+        <dependency>
+            <groupId>tools.dynamia.modules</groupId>
+            <artifactId>tools.dynamia.modules.entityfiles.ui</artifactId>
+            <version>${entityfiles.version}</version>
+        </dependency>
+
+        <!-- Support to work with files uploaded to AWS S3 buckets -->
+        <dependency>
+            <groupId>tools.dynamia.modules</groupId>
+            <artifactId>tools.dynamia.modules.entityfiles.s3</artifactId>
+            <version>${entityfiles.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

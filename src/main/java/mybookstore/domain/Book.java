@@ -21,6 +21,7 @@ import jakarta.persistence.*;
 import mybookstore.domain.enums.StockStatus;
 import tools.dynamia.domain.OrderBy;
 import tools.dynamia.domain.jpa.SimpleEntity;
+import tools.dynamia.modules.entityfile.domain.EntityFile;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -58,6 +59,10 @@ public class Book extends SimpleEntity {
 
     private boolean onSale;
     private BigDecimal salePrice;
+
+
+    @OneToOne
+    private EntityFile bookCover;
 
 
     public String getTitle() {
@@ -159,5 +164,13 @@ public class Book extends SimpleEntity {
 
     public void setSalePrice(BigDecimal salePrice) {
         this.salePrice = salePrice;
+    }
+
+    public EntityFile getBookCover() {
+        return bookCover;
+    }
+
+    public void setBookCover(EntityFile bookCover) {
+        this.bookCover = bookCover;
     }
 }

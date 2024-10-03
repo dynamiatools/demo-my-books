@@ -3,6 +3,17 @@ beanClass: mybookstore.domain.Book
 autofields: false
 
 fields:
+  bookCover:
+    label: Cover
+    component: entityfileImage
+    params:
+      thumbnail: true
+      renderWhenNull: true
+      header:
+        width: 70px
+        align: center
+
+
   title:
   category:
   stockStatus:
@@ -12,7 +23,7 @@ fields:
       defaultSclass: stockStatus
       sclassPrefix: status
       header:
-        width: 80px
+        width: 90px
 
   sinopsys:
     params:

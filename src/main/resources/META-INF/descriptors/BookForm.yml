@@ -23,6 +23,16 @@ fields:
       multiline: true
       height: 80px
 
+  bookCover:
+    params:
+      imageOnly: true
+  preview:
+    component: entityfileImage
+    params:
+      thumbnail: true
+      bindings:
+        value: bookCover
+
   reviews:
     component: crudview
 
