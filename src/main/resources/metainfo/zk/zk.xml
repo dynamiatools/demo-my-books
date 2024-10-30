@@ -1,0 +1,10 @@
+<zk>
+    <config-name>DynamiaTools</config-name>
+    <desktop-config>
+        <!--
+                <disable-theme-uri>~./zul/css/zk.wcs</disable-theme-uri>
+
+                -->
+    </desktop-config>
+
+</zk>
