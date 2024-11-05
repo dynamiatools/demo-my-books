@@ -23,10 +23,8 @@ import mybookstore.domain.Customer;
 import mybookstore.domain.Invoice;
 import tools.dynamia.crud.CrudPage;
 import tools.dynamia.integration.sterotypes.Provider;
+import tools.dynamia.navigation.*;
 import tools.dynamia.navigation.Module;
-import tools.dynamia.navigation.ModuleProvider;
-import tools.dynamia.navigation.Page;
-import tools.dynamia.navigation.PageGroup;
 
 @Provider
 public class MyBookStoreModuleProvider implements ModuleProvider { // <1>
@@ -34,29 +32,33 @@ public class MyBookStoreModuleProvider implements ModuleProvider { // <1>
     @Override
     public Module getModule() { //<2>
 
-        var mod = new Module("library", "Library") //<3>
+
+        return new Module("library", "Library") //<3>
                 .icon("book")
                 .description("my books library")
                 .position(0)
-                .addPage(new CrudPage("books", "Books", Book.class))
-                .addPage(new CrudPage("categories", "Categories", Category.class).icon("tree"))
-                .addPage(new CrudPage("customers", "Customers", Customer.class).icon("people"))
-                .addPage(new CrudPage("invoices", "Invoices", Invoice.class));
-
-
-        var examples = new PageGroup("examples", "More Examples");
-        mod.addPageGroup(examples);
-
-        examples.addPage(new Page("components", "Custom Components", "classpath:/pages/custom-components.zul"));
-        examples.addPage(new Page("vue", "Vue Example", "classpath:/pages/vue-integration.zul"));
-        examples.addPage(new Page("html", "Simple Html File", "/file.html?v=1"));
-        examples.addPage(new Page("mvvm", "Standard ZK MVVM", "classpath:/pages/standard-mvvm.zul"));
-        examples.addPage(new Page("chartjs", "Charts for ZK", "classpath:/pages/chartjs.zul"));
-        examples.addPage(new Page("aceditor", "Ace Code Editor", "classpath:/pages/aceditor.zul"));
-        examples.addPage(new Page("signaturepad", "Signature Pad", "classpath:/pages/signaturepad.zul"));
-
-
-        return mod;
+                .addPage(
+                        new CrudPage("books", "Books", Book.class),
+                        new CrudPage("categories", "Categories", Category.class).icon("tree"),
+                        new CrudPage("customers", "Customers", Customer.class).icon("people"),
+                        new CrudPage("invoices", "Invoices", Invoice.class)
+                )
+                .addPageGroup(new PageGroup("examples", "More Examples")
+                        .addPage(
+                                new Page("components", "Custom Components", "classpath:/pages/custom-components.zul"),
+                                new Page("vue", "Vue Example", "classpath:/pages/vue-integration.zul"),
+                                new Page("mvvm", "Standard ZK MVVM", "classpath:/pages/standard-mvvm.zul"),
+                                new Page("chartjs", "Charts for ZK", "classpath:/pages/chartjs.zul"),
+                                new Page("aceditor", "Ace Code Editor", "classpath:/pages/aceditor.zul"),
+                                new Page("signaturepad", "Signature Pad", "classpath:/pages/signaturepad.zul")
+                        )
+                        .addPageGroup(new PageGroup("external", "External Pages")
+                                .addPage(
+                                        new Page("html", "Simple Html File", "/file.html?v=1"),
+                                        new ExternalPage("app", "Some app", "/app"),
+                                        new ExternalPage("documentation", "Docs", "https://dynamia.tools")
+                                ))
+                );
 
     }
 }

@@ -7,8 +7,14 @@ import tools.dynamia.integration.sterotypes.Controller;
 public class StaticFileController {
 
     @GetMapping("/front")
-    public String file(){
+    public String file() {
         System.out.println("Loading static /file");
         return "static/file.html";
+    }
+
+    @GetMapping("/app")
+    public String app() {
+        System.out.println("Loading static /app");
+        return "static/app/index.html";
     }
 }
