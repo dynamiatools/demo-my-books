@@ -32,7 +32,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.5</version>
+        <version>3.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -48,8 +48,8 @@
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
 
         <tools.version>5.3.1</tools.version>
-        <entityfiles.version>7.2.0</entityfiles.version>
-        <security.version>1.0.1</security.version>
+        <entityfiles.version>7.2.1</entityfiles.version>
+        <security.version>1.0.2</security.version>
     </properties>
 
     <dependencies>
@@ -62,7 +62,7 @@
         <dependency>
             <groupId>tools.dynamia.themes</groupId>
             <artifactId>tools.dynamia.themes.dynamical</artifactId>
-            <version>5.3.0</version>
+            <version>5.3.1</version>
         </dependency>
 
 
@@ -132,9 +132,71 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${target.version}</target>
-                     <encoding>${source.encoding}</encoding>
+                    <encoding>${source.encoding}</encoding>
                     <parameters>true</parameters>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.15.1</version>
+                <configuration>
+                    <workingDirectory>src/main/frontend</workingDirectory>
+                    <nodeVersion>v22.11.0</nodeVersion>
+                </configuration>
+                <executions>
+                    <!-- Instalar Node.js y npm -->
+                    <execution>
+                        <id>install-node-and-npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                    </execution>
+                    <!-- Instalar dependencias npm -->
+                    <execution>
+                        <id>npm-install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+                    <!-- Construir el frontend -->
+                    <execution>
+                        <id>npm-build</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run build</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-frontend-to-static</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/classes/static/app</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/frontend/dist</directory>
+                                    <includes>
+                                        <include>**/*</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

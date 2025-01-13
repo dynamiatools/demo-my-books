@@ -55,6 +55,7 @@ public class MyBookStoreModuleProvider implements ModuleProvider { // <1>
                         .addPageGroup(new PageGroup("external", "External Pages")
                                 .addPage(
                                         new Page("html", "Simple Html File", "/file.html?v=1"),
+                                        new Page("htmx", "Htmx Example", "/htmx.html?v=1"),
                                         new ExternalPage("app", "Some app", "/app"),
                                         new ExternalPage("documentation", "Docs", "https://dynamia.tools")
                                 ))

@@ -27,6 +27,7 @@ import org.springframework.context.annotation.Bean;
 import tools.dynamia.app.Ehcache3CacheManager;
 import tools.dynamia.domain.DefaultEntityReferenceRepository;
 import tools.dynamia.domain.EntityReferenceRepository;
+import tools.dynamia.navigation.DefaultPageProvider;
 
 @SpringBootApplication
 @EntityScan({"mybookstore", "tools.dynamia"})
@@ -47,6 +48,11 @@ public class MyBookStoreApplication { //<1>
     @Bean
     public EntityReferenceRepository<Long> categoriesReferenceRepository() {
         return new DefaultEntityReferenceRepository<>(Category.class, "name");
+    }
+
+    @Bean
+    public DefaultPageProvider defaultPageProvider() {
+        return () -> "library/books";
     }
 
 }

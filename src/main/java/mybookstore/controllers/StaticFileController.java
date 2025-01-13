@@ -17,4 +17,10 @@ public class StaticFileController {
         System.out.println("Loading static /app");
         return "static/app/index.html";
     }
+
+    @GetMapping("/components")
+    public String componets() {
+
+        return "components";
+    }
 }

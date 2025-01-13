@@ -1,0 +1,26 @@
+<html>
+<head>
+    <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+    <script type="text/javascript" src="/zkau/web/b59df4bf/js/zk.wpd" charset="UTF-8"></script>
+    <script type="text/javascript" src="/zkau/web/b59df4bf/js/zul.lang.wpd" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/dynamia-tools/js/dynamia-tools.js?v=5.3.1" charset="UTF-8"></script>
+    <script type="text/javascript" src="/zkau/web/b59df4bf/js/zkbind.wpd" charset="UTF-8"></script>
+
+    <link rel="stylesheet" type="text/css" href="/zkau/web/b59df4bf/_zkiju-iceblue_c/zul/css/zk.wcs"/>
+
+</head>
+<body>
+<!-- have a button POST a click via AJAX -->
+
+<h1>Html Loader</h1>
+
+<button class="z-button" hx-get="/components" hx-target="#content"
+        hx-swap="outerHTML">
+    Load Page
+</button>
+
+<div id="content">
+
+</div>
+</body>
+</html>
