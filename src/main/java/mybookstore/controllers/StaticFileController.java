@@ -19,8 +19,14 @@ public class StaticFileController {
     }
 
     @GetMapping("/components")
-    public String componets() {
+    public String components() {
 
         return "components";
+    }
+
+    @GetMapping("/books")
+    public String books() {
+
+        return "books";
     }
 }

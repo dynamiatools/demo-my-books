@@ -24,14 +24,18 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import tools.dynamia.app.Ehcache3CacheManager;
 import tools.dynamia.domain.DefaultEntityReferenceRepository;
 import tools.dynamia.domain.EntityReferenceRepository;
 import tools.dynamia.navigation.DefaultPageProvider;
+import tools.dynamia.ui.icons.IconsProvider;
+import tools.dynamia.zk.ui.ZIconsProvider;
 
 @SpringBootApplication
 @EntityScan({"mybookstore", "tools.dynamia"})
 @EnableCaching
+@EnableScheduling
 public class MyBookStoreApplication { //<1>
 
 
@@ -53,6 +57,11 @@ public class MyBookStoreApplication { //<1>
     @Bean
     public DefaultPageProvider defaultPageProvider() {
         return () -> "library/books";
+    }
+
+    @Bean
+    public IconsProvider iconsProvider(){
+        return new ZIconsProvider();
     }
 
 }
