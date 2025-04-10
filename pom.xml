@@ -32,7 +32,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.3</version>
+        <version>3.4.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -47,8 +47,8 @@
         <timestamp>${maven.build.timestamp}</timestamp>
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
 
-        <tools.version>5.3.4</tools.version>
-        <entityfiles.version>7.2.1</entityfiles.version>
+        <tools.version>5.3.6</tools.version>
+        <entityfiles.version>7.3.0</entityfiles.version>
         <security.version>1.0.2</security.version>
     </properties>
 
@@ -62,7 +62,7 @@
         <dependency>
             <groupId>tools.dynamia.themes</groupId>
             <artifactId>tools.dynamia.themes.dynamical</artifactId>
-            <version>5.3.4</version>
+            <version>5.3.6</version>
         </dependency>
 
 

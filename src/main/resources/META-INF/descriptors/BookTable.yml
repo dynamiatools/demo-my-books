@@ -3,9 +3,15 @@ beanClass: mybookstore.domain.Book
 autofields: false
 
 fields:
+  selected:
+    label: S
   bookCover:
     label: Cover
     component: entityfileImage
+    visible: true
+    optional: true
+    variable: cov
+    path: cov.uuid
     params:
       thumbnail: true
       renderWhenNull: true
@@ -16,6 +22,7 @@ fields:
 
   title:
   category:
+
   stockStatus:
     label: Stock
     component: enumlabel
