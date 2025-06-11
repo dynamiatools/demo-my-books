@@ -22,6 +22,19 @@ fields:
       span: 4
       multiline: true
       height: 80px
+  discount:
+    params:
+      constraint: "min 0 max 100"
+
+  bookCover:
+    params:
+      imageOnly: true
+  preview:
+    component: entityfileImage
+    params:
+      thumbnail: true
+      bindings:
+        value: bookCover
 
   reviews:
     component: crudview

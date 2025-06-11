@@ -18,9 +18,12 @@
 package mybookstore.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import mybookstore.domain.enums.StockStatus;
 import tools.dynamia.domain.OrderBy;
 import tools.dynamia.domain.jpa.SimpleEntity;
+import tools.dynamia.modules.entityfile.domain.EntityFile;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -33,11 +36,13 @@ import java.util.List;
 public class Book extends SimpleEntity {
 
 
+    @NotNull
     private String title;
     @Column(length = 1000)
     private String sinopsys;
     @Column(name = "publication_year")
     private int year;
+    @NotEmpty
     private String isbn;
     @ManyToOne
     private Category category;
@@ -58,6 +63,15 @@ public class Book extends SimpleEntity {
 
     private boolean onSale;
     private BigDecimal salePrice;
+
+
+    @OneToOne
+    private EntityFile bookCover;
+
+    private double discount;//percent
+
+    @Transient
+    private boolean selected;
 
 
     public String getTitle() {
@@ -159,5 +173,29 @@ public class Book extends SimpleEntity {
 
     public void setSalePrice(BigDecimal salePrice) {
         this.salePrice = salePrice;
+    }
+
+    public EntityFile getBookCover() {
+        return bookCover;
+    }
+
+    public void setBookCover(EntityFile bookCover) {
+        this.bookCover = bookCover;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 }

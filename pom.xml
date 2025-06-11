@@ -22,7 +22,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dynamia-tools-demos</groupId>
     <artifactId>my-book-store</artifactId>
-    <version>3.2.0</version>
+    <version>3.3.0</version>
     <packaging>jar</packaging>
 
     <name>MyBookStore</name>
@@ -32,7 +32,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.3</version>
+        <version>3.4.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -47,8 +47,9 @@
         <timestamp>${maven.build.timestamp}</timestamp>
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
 
-        <tools.version>5.2.0</tools.version>
-        <security.version>1.0.1</security.version>
+        <tools.version>5.3.6</tools.version>
+        <entityfiles.version>7.3.0</entityfiles.version>
+        <security.version>1.0.2</security.version>
     </properties>
 
     <dependencies>
@@ -61,7 +62,7 @@
         <dependency>
             <groupId>tools.dynamia.themes</groupId>
             <artifactId>tools.dynamia.themes.dynamical</artifactId>
-            <version>5.2.0</version>
+            <version>5.3.6</version>
         </dependency>
 
 
@@ -86,7 +87,25 @@
             <classifier>jakarta</classifier>
         </dependency>
 
+        <!-- Dynamia Tools Optional Modules -->
 
+        <!-- Support to work with files attached to entities -->
+        <dependency>
+            <groupId>tools.dynamia.modules</groupId>
+            <artifactId>tools.dynamia.modules.entityfiles.ui</artifactId>
+            <version>${entityfiles.version}</version>
+        </dependency>
+
+        <!-- Support to work with files uploaded to AWS S3 buckets -->
+        <dependency>
+            <groupId>tools.dynamia.modules</groupId>
+            <artifactId>tools.dynamia.modules.entityfiles.s3</artifactId>
+            <version>${entityfiles.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -113,9 +132,71 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${target.version}</target>
-                     <encoding>${source.encoding}</encoding>
+                    <encoding>${source.encoding}</encoding>
                     <parameters>true</parameters>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.15.1</version>
+                <configuration>
+                    <workingDirectory>src/main/frontend</workingDirectory>
+                    <nodeVersion>v22.11.0</nodeVersion>
+                </configuration>
+                <executions>
+                    <!-- Instalar Node.js y npm -->
+                    <execution>
+                        <id>install-node-and-npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                    </execution>
+                    <!-- Instalar dependencias npm -->
+                    <execution>
+                        <id>npm-install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+                    <!-- Construir el frontend -->
+                    <execution>
+                        <id>npm-build</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run build</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-frontend-to-static</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/classes/static/app</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/frontend/dist</directory>
+                                    <includes>
+                                        <include>**/*</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
