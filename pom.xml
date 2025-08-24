@@ -22,7 +22,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dynamia-tools-demos</groupId>
     <artifactId>my-book-store</artifactId>
-    <version>3.4.0</version>
+    <version>3.4.1</version>
     <packaging>jar</packaging>
 
     <name>MyBookStore</name>
@@ -32,7 +32,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.0</version>
+        <version>3.5.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -47,7 +47,7 @@
         <timestamp>${maven.build.timestamp}</timestamp>
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
 
-        <tools.version>5.4.0</tools.version>
+        <tools.version>5.4.1</tools.version>
         <entityfiles.version>7.4.0</entityfiles.version>
         <security.version>1.1.0</security.version>
     </properties>
@@ -62,7 +62,7 @@
         <dependency>
             <groupId>tools.dynamia.themes</groupId>
             <artifactId>tools.dynamia.themes.dynamical</artifactId>
-            <version>5.4.0</version>
+            <version>5.4.1</version>
         </dependency>
 
 
