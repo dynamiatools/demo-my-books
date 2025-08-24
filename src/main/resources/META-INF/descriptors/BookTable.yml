@@ -53,6 +53,18 @@ fields:
       header:
         align: right
 
+
+  creationTimestamp:
+    label: Created
+    params:
+      converter: converters.LocalDateTime
+      header:
+        width: 100px
+        align: center
+
+
+
+
 params:
   enumColors:
     name: stockStatus

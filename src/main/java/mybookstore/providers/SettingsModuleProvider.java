@@ -35,7 +35,7 @@ public class SettingsModuleProvider implements ModuleProvider { // <1>
                 .icon("settings")
                 .position(1)
                 .addPage(new ConfigPage("discounts", "Global Discounts", "discountsCfg"))
-                .addPage(new Page("skin", "Skins", "classpath:/pages/changeSkin.zul"));
+                .addPage(new Page("userSettings", "User Settings", "classpath:/pages/user-settings.zul"));
 
     }
 }

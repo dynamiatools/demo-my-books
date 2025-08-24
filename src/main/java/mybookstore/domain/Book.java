@@ -22,7 +22,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import mybookstore.domain.enums.StockStatus;
 import tools.dynamia.domain.OrderBy;
-import tools.dynamia.domain.jpa.SimpleEntity;
+import tools.dynamia.domain.jpa.BaseEntity;
 import tools.dynamia.modules.entityfile.domain.EntityFile;
 
 import java.math.BigDecimal;
@@ -33,7 +33,7 @@ import java.util.List;
 @Entity
 @Table(name = "books")
 @OrderBy("title")
-public class Book extends SimpleEntity {
+public class Book extends BaseEntity {
 
 
     @NotNull
