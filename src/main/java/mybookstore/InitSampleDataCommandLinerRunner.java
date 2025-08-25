@@ -26,7 +26,7 @@ import tools.dynamia.commons.DateTimeUtils;
 import tools.dynamia.commons.StringUtils;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Random;
 
@@ -56,37 +56,35 @@ public class InitSampleDataCommandLinerRunner implements CommandLineRunner {
 
         List.of("My First Pony", "100 years of drama", "My Best Friend", "The Little Prince", "Lord of the Rings", "Game of Thrones",
                         "Skyward", "Son of Mist", "Dune", "Divergent", "Henry Pota")
-                .forEach(title -> {
 
+                .forEach(title -> {
                     int random = new Random().nextInt(novels.getSubcategories().size());
-                    var book = new Book();
-                    book.setTitle(title);
-                    book.setCategory(novels.getSubcategories().get(random));
-                    book.setYear(new Random().nextInt(2000, DateTimeUtils.getCurrentYear()));
-                    book.setBuyDate(new Date());
-                    book.setIsbn(StringUtils.randomString().toUpperCase());
-                    book.setSinopsys("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
-                    book.setPrice(BigDecimal.valueOf(25L * random));
-                    book.setStockStatus(StockStatus.random());
-                    book.save();
+                    var category = novels.getSubcategories().get(random);
+                    newBook(title, category, random);
                 });
 
         List.of("My First Programming", "Clean Code", "Design Patterns", "Scale to the cloud", "Spring Boot", "Dynamia in Action", "Flutter", "Dart",
-                        "Javascript Maxx")
+                        "Javascript Maxx", "Tha Naxt Web", "Kotlin for Android")
                 .forEach(title -> {
-                    int random = new Random().nextInt(programming.getSubcategories().size());
-                    var book = new Book();
-                    book.setTitle(title);
-                    book.setCategory(programming.getSubcategories().get(random));
-                    book.setYear(new Random().nextInt(2010, DateTimeUtils.getCurrentYear()));
-                    book.setBuyDate(new Date());
-                    book.setIsbn(StringUtils.randomString().toUpperCase());
-                    book.setSinopsys("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
-                    book.setPrice(BigDecimal.valueOf(40L * random));
-                    book.setStockStatus(StockStatus.random());
-                    book.save();
+                    int random = new Random().nextInt(novels.getSubcategories().size());
+                    var category = programming.getSubcategories().get(random);
+                    newBook(title, category, random);
                 });
 
         System.out.println("Demo ready to run");
+    }
+
+    private static void newBook(String title, Category category, int random) {
+        var book = new Book();
+        book.setTitle(title);
+        book.setCategory(category);
+        book.setYear(new Random().nextInt(2000, DateTimeUtils.getCurrentYear()));
+        book.setBuyDate(LocalDate.now());
+        book.setIsbn(StringUtils.randomString().toUpperCase());
+        book.setSinopsys("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+        book.setPrice(BigDecimal.valueOf(25L * random));
+        book.setStockStatus(StockStatus.random());
+        book.setPublishDate(DateTimeUtils.addYears(LocalDate.now(), -new Random().nextInt(1, 10)));
+        book.save();
     }
 }

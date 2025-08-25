@@ -26,6 +26,7 @@ import tools.dynamia.domain.jpa.BaseEntity;
 import tools.dynamia.modules.entityfile.domain.EntityFile;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -48,10 +49,10 @@ public class Book extends BaseEntity {
     private Category category;
 
     @Temporal(TemporalType.DATE)
-    private Date publishDate;
+    private LocalDate publishDate;
 
     @Temporal(TemporalType.DATE)
-    private Date buyDate;
+    private LocalDate buyDate;
 
     private BigDecimal price;
 
@@ -114,19 +115,19 @@ public class Book extends BaseEntity {
         this.category = category;
     }
 
-    public Date getPublishDate() {
+    public LocalDate getPublishDate() {
         return publishDate;
     }
 
-    public void setPublishDate(Date publishDate) {
+    public void setPublishDate(LocalDate publishDate) {
         this.publishDate = publishDate;
     }
 
-    public Date getBuyDate() {
+    public LocalDate getBuyDate() {
         return buyDate;
     }
 
-    public void setBuyDate(Date buyDate) {
+    public void setBuyDate(LocalDate buyDate) {
         this.buyDate = buyDate;
     }
 
