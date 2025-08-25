@@ -54,6 +54,14 @@ fields:
         align: right
 
 
+  creationDate:
+    label: Created
+    params:
+      converter: converters.Date
+      header:
+        width: 100px
+        align: center
+
   creationTimestamp:
     label: Created
     params:
