@@ -22,10 +22,12 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import mybookstore.domain.enums.StockStatus;
 import tools.dynamia.domain.OrderBy;
-import tools.dynamia.domain.jpa.SimpleEntity;
+import tools.dynamia.domain.jpa.BaseEntity;
 import tools.dynamia.modules.entityfile.domain.EntityFile;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -33,7 +35,7 @@ import java.util.List;
 @Entity
 @Table(name = "books")
 @OrderBy("title")
-public class Book extends SimpleEntity {
+public class Book extends BaseEntity {
 
 
     @NotNull
@@ -47,16 +49,15 @@ public class Book extends SimpleEntity {
     @ManyToOne
     private Category category;
 
-    @Temporal(TemporalType.DATE)
-    private Date publishDate;
 
-    @Temporal(TemporalType.DATE)
-    private Date buyDate;
+    private LocalDate publishDate;
+    private LocalDate buyDate;
 
     private BigDecimal price;
 
     @Enumerated
     private StockStatus stockStatus = StockStatus.IN_STOCK;
+    private LocalDateTime statusDate;
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BookReview> reviews = new ArrayList<>();
@@ -114,19 +115,19 @@ public class Book extends SimpleEntity {
         this.category = category;
     }
 
-    public Date getPublishDate() {
+    public LocalDate getPublishDate() {
         return publishDate;
     }
 
-    public void setPublishDate(Date publishDate) {
+    public void setPublishDate(LocalDate publishDate) {
         this.publishDate = publishDate;
     }
 
-    public Date getBuyDate() {
+    public LocalDate getBuyDate() {
         return buyDate;
     }
 
-    public void setBuyDate(Date buyDate) {
+    public void setBuyDate(LocalDate buyDate) {
         this.buyDate = buyDate;
     }
 
@@ -143,6 +144,9 @@ public class Book extends SimpleEntity {
     }
 
     public void setStockStatus(StockStatus stockStatus) {
+        if(this.stockStatus != stockStatus){
+            this.statusDate = LocalDateTime.now();
+        }
         this.stockStatus = stockStatus;
     }
 

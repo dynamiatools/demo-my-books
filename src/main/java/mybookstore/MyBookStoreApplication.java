@@ -30,7 +30,12 @@ import tools.dynamia.domain.DefaultEntityReferenceRepository;
 import tools.dynamia.domain.EntityReferenceRepository;
 import tools.dynamia.navigation.DefaultPageProvider;
 import tools.dynamia.ui.icons.IconsProvider;
+import tools.dynamia.web.pwa.PWAIcon;
+import tools.dynamia.web.pwa.PWAManifest;
+import tools.dynamia.web.pwa.PWAShortcut;
 import tools.dynamia.zk.ui.ZIconsProvider;
+
+import java.util.List;
 
 @SpringBootApplication
 @EntityScan({"mybookstore", "tools.dynamia"})
@@ -60,8 +65,42 @@ public class MyBookStoreApplication { //<1>
     }
 
     @Bean
-    public IconsProvider iconsProvider(){
+    public IconsProvider iconsProvider() {
         return new ZIconsProvider();
+    }
+
+
+    @Bean
+    public PWAManifest manifest() {
+        return PWAManifest.builder()
+                .name("My Book Store")
+                .shortName("Books")
+                .startUrl("/")
+                .backgroundColor("#ffffff")
+                .themeColor("#3f51b5")
+                .display("standalone")
+                .categories(List.of("books", "education", "library"))
+                .addIcon(PWAIcon.builder()
+                        .src("android-chrome-192x192.png")
+                        .sizes("192x192")
+                        .type("image/png")
+                        .build())
+                .addIcon(PWAIcon.builder()
+                        .src("android-chrome-512x512.png")
+                        .sizes("512x512")
+                        .type("image/png")
+                        .build())
+                .addShortcut(PWAShortcut.builder()
+                        .name("Home")
+                        .shortName("Home")
+                        .description("Go to home page")
+                        .url("/")
+                        .addIcon(PWAIcon.builder()
+                                .src("android-chrome-192x192.png")
+                                .sizes("192x192")
+                                .type("image/png").build())
+                        .build())
+                .build();
     }
 
 }
