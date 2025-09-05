@@ -50,8 +50,12 @@ fields:
   price:
     params:
       converter: converters.Currency
+
       header:
         align: right
+        sclass: orange color-white
+      cell:
+        sclass: orange lighten-5
 
 
   creationDate:

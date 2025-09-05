@@ -27,6 +27,7 @@ import tools.dynamia.modules.entityfile.domain.EntityFile;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -48,16 +49,15 @@ public class Book extends BaseEntity {
     @ManyToOne
     private Category category;
 
-    @Temporal(TemporalType.DATE)
-    private LocalDate publishDate;
 
-    @Temporal(TemporalType.DATE)
+    private LocalDate publishDate;
     private LocalDate buyDate;
 
     private BigDecimal price;
 
     @Enumerated
     private StockStatus stockStatus = StockStatus.IN_STOCK;
+    private LocalDateTime statusDate;
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BookReview> reviews = new ArrayList<>();
@@ -144,6 +144,9 @@ public class Book extends BaseEntity {
     }
 
     public void setStockStatus(StockStatus stockStatus) {
+        if(this.stockStatus != stockStatus){
+            this.statusDate = LocalDateTime.now();
+        }
         this.stockStatus = stockStatus;
     }
 
