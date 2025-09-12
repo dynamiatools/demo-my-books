@@ -48,6 +48,7 @@
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
 
         <tools.version>5.4.6</tools.version>
+        <dynamical.theme.version>5.4.2</dynamical.theme.version>
         <entityfiles.version>7.4.0</entityfiles.version>
         <security.version>1.1.0</security.version>
     </properties>
@@ -62,7 +63,7 @@
         <dependency>
             <groupId>tools.dynamia.themes</groupId>
             <artifactId>tools.dynamia.themes.dynamical</artifactId>
-            <version>5.4.1</version>
+            <version>${dynamical.theme.version}</version>
         </dependency>
 
 

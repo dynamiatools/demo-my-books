@@ -18,6 +18,7 @@
 package mybookstore;
 
 import mybookstore.domain.Category;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -26,6 +27,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import tools.dynamia.app.Ehcache3CacheManager;
+import tools.dynamia.commons.UserInfo;
 import tools.dynamia.domain.DefaultEntityReferenceRepository;
 import tools.dynamia.domain.EntityReferenceRepository;
 import tools.dynamia.navigation.DefaultPageProvider;
@@ -103,4 +105,18 @@ public class MyBookStoreApplication { //<1>
                 .build();
     }
 
+
+    /**
+     * Initializes sample data on application startup for user info. @Bean should be name "userInfo" to be detected by Dynamical Template
+     *
+     * @return a user info instance with sample data
+     */
+    @Bean("userInfo")
+    public UserInfo userInfo() {
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUsername("admin");
+        userInfo.setFullName("Administrator");
+        userInfo.setImage("/static/user-photo.jpg");
+        return userInfo;
+    }
 }
