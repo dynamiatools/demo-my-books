@@ -29,4 +29,14 @@ public class StaticFileController {
 
         return "books";
     }
+
+    /**
+     * Should resolver view to views/html-view.html
+     *
+     * @return
+     */
+    @GetMapping("/other-front")
+    public String htmlView() {
+        return "custom-view";
+    }
 }
