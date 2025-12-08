@@ -50,7 +50,8 @@ public class MyBookStoreModuleProvider implements ModuleProvider { // <1>
                                 new Page("mvvm", "Standard ZK MVVM", "classpath:/pages/standard-mvvm.zul"),
                                 new Page("chartjs", "Charts for ZK", "classpath:/pages/chartjs.zul"),
                                 new Page("aceditor", "Ace Code Editor", "classpath:/pages/aceditor.zul"),
-                                new Page("signaturepad", "Signature Pad", "classpath:/pages/signaturepad.zul")
+                                new Page("signaturepad", "Signature Pad", "classpath:/pages/signaturepad.zul"),
+                                new Page("push", "WebSocket Push Test", "classpath:/pages/pushtest.zul")
                         )
                         .addPageGroup(new PageGroup("external", "External Pages")
                                 .addPage(

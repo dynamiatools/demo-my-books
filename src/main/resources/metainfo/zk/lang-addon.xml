@@ -3,5 +3,10 @@
     <language-name>xul/html</language-name>
 
     <stylesheet href="/static/css/books.css" type="text/css"/>
+    <!-- Include Dynamia Tools WebSocket JS -->
+    <javascript src="/static/dynamia-tools/js/dynamia-tools-ws.js"/>
+
+
+
 
 </language-addon>

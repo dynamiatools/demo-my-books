@@ -12,8 +12,10 @@ import tools.dynamia.ui.MessageType;
 import tools.dynamia.ui.UIMessages;
 import tools.dynamia.zk.crud.actions.ViewDataAction;
 import tools.dynamia.zk.util.ZKBindingUtil;
+import tools.dynamia.zk.util.ZKUtil;
 import tools.dynamia.zk.viewers.ui.Viewer;
 
+import java.time.Duration;
 import java.util.List;
 
 public class StandardViewModel {
@@ -32,6 +34,10 @@ public class StandardViewModel {
     public void initBooks() {
         System.out.println("Loading Standard View Model");
         books = crudService.findAll(Book.class);
+
+        ZKUtil.runLater(Duration.ofSeconds(3), () -> UIMessages.showMessageDialog("This is a standard ZK MVVM example showing a list of books loaded from the database using Dynamia CrudService.<br/><br/>" +
+                        "You can select a book and view its details or select multiple books to see how to work with multi selection in ZK MVVM.",
+                "Standard ZK MVVM Example", MessageType.NORMAL));
     }
 
     @Command

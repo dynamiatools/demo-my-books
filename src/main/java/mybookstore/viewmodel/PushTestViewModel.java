@@ -19,22 +19,37 @@ package mybookstore.viewmodel;
 
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.GlobalCommand;
+import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Desktop;
 import org.zkoss.zk.ui.Executions;
 import tools.dynamia.integration.scheduling.SchedulerUtil;
+import tools.dynamia.ui.MessageType;
+import tools.dynamia.ui.UIMessages;
+import tools.dynamia.zk.util.ZKUtil;
 import tools.dynamia.zk.websocket.WebSocketPushSender;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import static tools.dynamia.integration.scheduling.SchedulerUtil.sleep;
+
 public class PushTestViewModel {
 
-    private int steps = 5;
+    private int steps = 10;
     private List<String> messages = new ArrayList<>();
     private int progress;
+
+    @Init
+    public void init() {
+        ZKUtil.runLater(Duration.ofSeconds(3), () -> UIMessages.showMessageDialog("This view model will test WebSocket push notifications sending a notification from the server every second for " + steps + " seconds.<br/><br/>" +
+                        "You can open multiple browser tabs to see that notifications are sent to all connected clients.", "WebSocket Push Test",
+                MessageType.NORMAL));
+    }
+
 
     @Command
     public void startTest() {
@@ -42,11 +57,7 @@ public class PushTestViewModel {
         progress = 0;
         SchedulerUtil.run(() -> IntStream.range(1, steps).forEach(s -> {
             WebSocketPushSender.sendPushCommand(desktop, "pushTest");
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            sleep(Duration.ofSeconds(1));
         }));
     }
 
@@ -55,11 +66,7 @@ public class PushTestViewModel {
         progress = 0;
         SchedulerUtil.run(() -> IntStream.range(1, steps).forEach(s -> {
             WebSocketPushSender.broadcastCommand("pushTest");
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            sleep(Duration.ofSeconds(1));
         }));
     }
 
@@ -76,7 +83,10 @@ public class PushTestViewModel {
     @NotifyChange("*")
     public void pushTest() {
         messages.add("Notification send from the server - " + new Date());
-        progress = progress + 100 / steps;
+        if (progress > 100) {
+            progress = 0;
+        }
+        progress = progress + 100 / steps + 1;
     }
 
     public List<String> getMessages() {

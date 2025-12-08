@@ -17,7 +17,7 @@
 
 <zk>
     <div apply="org.zkoss.bind.BindComposer"
-         viewModel="@id('vm') @init('tools.dynamia.demos.viewmodel.PushTestViewModel')">
+         viewModel="@id('vm') @init('mybookstore.viewmodel.PushTestViewModel')">
 
         <hlayout>
             <button label="Start Push Test" onClick="@command('startTest')"/>
