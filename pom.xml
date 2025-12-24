@@ -32,7 +32,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.8</version>
+        <version>3.5.9</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -48,7 +48,7 @@
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
 
         <tools.version>5.4.12</tools.version>
-        <dynamical.theme.version>5.4.7</dynamical.theme.version>
+        <dynamical.theme.version>5.4.12</dynamical.theme.version>
         <entityfiles.version>7.5.0</entityfiles.version>
         <security.version>1.1.0</security.version>
     </properties>
