@@ -81,6 +81,6 @@ params:
   enumColors:
     name: stockStatus
     colors:
-      OUT_STOCK: "#FFD9D1FF"
+      OUT_STOCK: "#ffe8e8"
 
   orderBy: title
